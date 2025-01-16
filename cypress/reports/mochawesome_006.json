@@ -1,0 +1,190 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 3,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-01-16T21:52:49.349Z",
+    "end": "2025-01-16T21:52:51.556Z",
+    "duration": 2207,
+    "testsRegistered": 5,
+    "passPercent": 60,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1ed0a55b-bb32-4f8f-bf7a-d6a49f3dd152",
+      "title": "",
+      "fullFile": "cypress/e2e/api-tests/userLifecycle.spec.js",
+      "file": "cypress/e2e/api-tests/userLifecycle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+          "title": "User API - Full Lifecycle",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a new user successfully",
+              "fullTitle": "User API - Full Lifecycle should create a new user successfully",
+              "timedOut": null,
+              "duration": 271,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userApiPage.createUser(initialUserData).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body).to.have.property('name', initialUserData.name);\n  expect(response.body).to.have.property('job', initialUserData.job);\n  expect(response.body).to.have.property('id');\n  userId = response.body.id;\n});",
+              "err": {},
+              "uuid": "ee05161b-296a-4faa-91e5-63c94069420f",
+              "parentUUID": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify the created user's information",
+              "fullTitle": "User API - Full Lifecycle should verify the created user's information",
+              "timedOut": null,
+              "duration": 648,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "expect(userId, 'User ID should exist').to.not.be.undefined;\nuserApiPage.getUserById(userId).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data).to.have.property('id', parseInt(userId));\n  expect(response.body.data).to.have.property('first_name');\n});",
+              "err": {
+                "message": "AssertionError: expected 404 to equal 200",
+                "estack": "AssertionError: expected 404 to equal 200\n    at Context.eval (webpack://requesapiautomation/./cypress/e2e/api-tests/userLifecycle.spec.js:31:33)",
+                "diff": "- 404\n+ 200\n"
+              },
+              "uuid": "d94825e3-b14c-407a-be13-1b62165cf9a0",
+              "parentUUID": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update the user's information",
+              "fullTitle": "User API - Full Lifecycle should update the user's information",
+              "timedOut": null,
+              "duration": 250,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(userId, 'User ID should exist').to.not.be.undefined;\nuserApiPage.updateUser(userId, updatedUserData).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('name', updatedUserData.name);\n  expect(response.body).to.have.property('job', updatedUserData.job);\n});",
+              "err": {},
+              "uuid": "fd2215f5-d41f-4365-855d-740830674dfa",
+              "parentUUID": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify the updated user's information",
+              "fullTitle": "User API - Full Lifecycle should verify the updated user's information",
+              "timedOut": null,
+              "duration": 637,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "expect(userId, 'User ID should exist').to.not.be.undefined;\nuserApiPage.getUserById(userId).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data).to.have.property('id', parseInt(userId));\n});",
+              "err": {
+                "message": "AssertionError: expected 404 to equal 200",
+                "estack": "AssertionError: expected 404 to equal 200\n    at Context.eval (webpack://requesapiautomation/./cypress/e2e/api-tests/userLifecycle.spec.js:51:33)",
+                "diff": "- 404\n+ 200\n"
+              },
+              "uuid": "43762883-899c-4334-8197-94b323243dd0",
+              "parentUUID": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete the user successfully",
+              "fullTitle": "User API - Full Lifecycle should delete the user successfully",
+              "timedOut": null,
+              "duration": 234,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(userId, 'User ID should exist').to.not.be.undefined;\nuserApiPage.deleteUser(userId).then(response => {\n  expect(response.status).to.eq(204);\n});",
+              "err": {},
+              "uuid": "ffd2e611-c192-47ed-b762-44a497f94795",
+              "parentUUID": "afe6caf0-0c3e-4dab-9aca-82d5ec502821",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee05161b-296a-4faa-91e5-63c94069420f",
+            "fd2215f5-d41f-4365-855d-740830674dfa",
+            "ffd2e611-c192-47ed-b762-44a497f94795"
+          ],
+          "failures": [
+            "d94825e3-b14c-407a-be13-1b62165cf9a0",
+            "43762883-899c-4334-8197-94b323243dd0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2040,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

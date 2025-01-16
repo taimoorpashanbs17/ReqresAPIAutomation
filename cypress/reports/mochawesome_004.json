@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-16T21:52:43.358Z",
+    "end": "2025-01-16T21:52:44.187Z",
+    "duration": 829,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3bc227d-0fb1-4010-866d-d3bf80689ea7",
+      "title": "",
+      "fullFile": "cypress/e2e/api-tests/registerLoginLogout.spec.js",
+      "file": "cypress/e2e/api-tests/registerLoginLogout.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c37e7125-de79-4f6b-abf4-4b8cee8ae998",
+          "title": "User API - Register, Login, Logout Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register a new user successfully",
+              "fullTitle": "User API - Register, Login, Logout Flow should register a new user successfully",
+              "timedOut": null,
+              "duration": 268,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginRegisterApiPage.registerUser(registerUserData).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('id');\n  expect(response.body).to.have.property('token');\n  userId = response.body.id;\n});",
+              "err": {},
+              "uuid": "c047a820-b6b2-43c0-90e3-c2f56f97d195",
+              "parentUUID": "c37e7125-de79-4f6b-abf4-4b8cee8ae998",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login with the registered user",
+              "fullTitle": "User API - Register, Login, Logout Flow should login with the registered user",
+              "timedOut": null,
+              "duration": 242,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginRegisterApiPage.loginUser(loginUserData).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('token');\n});",
+              "err": {},
+              "uuid": "c42167db-ca64-4905-9900-767f2ff50bf3",
+              "parentUUID": "c37e7125-de79-4f6b-abf4-4b8cee8ae998",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should logout successfully",
+              "fullTitle": "User API - Register, Login, Logout Flow should logout successfully",
+              "timedOut": null,
+              "duration": 239,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userApiPage.logoutUser().then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "be334d3e-7918-4e3f-a946-d16d1b87d311",
+              "parentUUID": "c37e7125-de79-4f6b-abf4-4b8cee8ae998",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c047a820-b6b2-43c0-90e3-c2f56f97d195",
+            "c42167db-ca64-4905-9900-767f2ff50bf3",
+            "be334d3e-7918-4e3f-a946-d16d1b87d311"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 749,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

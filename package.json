@@ -1,0 +1,30 @@
+{
+  "name": "requesapiautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run:register-login-logout": "node --no-warnings ./node_modules/.bin/cypress run --spec cypress/e2e/api-tests/registerLoginLogout.spec.js",
+    "run-all-test": "node --no-warnings ./node_modules/.bin/cypress run --spec 'cypress/e2e/api-tests/*.spec.js' --reporter mochawesome",
+    "merge-reports": "node --no-warnings ./node_modules/.bin/mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "generate-report": "node --no-warnings ./node_modules/.bin/marge cypress/reports/merged-report.json --reportDir cypress/reports",
+    "delete-results": "rm -rf cypress/reports/* || true",
+    "delete-mochawesome-json-file": "rm -rf mochawesome.json || true",
+    "mochawesome-merge": "node --no-warnings ./node_modules/.bin/mochawesome-merge cypress/reports/*.json > mochawesome.json && node --no-warnings ./node_modules/.bin/marge mochawesome.json",
+    "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
+    "run-all-test-regression": "npm run delete-results && npm run delete-mochawesome-report && npm run delete-mochawesome-json-file && npm run run-all-test && npm run mochawesome-merge",
+    "open-html-report": "open mochawesome-report/mochawesome.html",
+    "generate-open-html-report": "npm run mochawesome-merge && npm run open-html-report"
+  },
+  "keywords": [],
+  "author": "Taimoor Pasha",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "cypress": "^13.17.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
