@@ -54,8 +54,8 @@ cypress/
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <project-folder>
+   git clone [<repository-url>](https://github.com/taimoorpashanbs17/ReqresAPIAutomation)
+   cd ReqresAPIAutomation
 
 2. Install Dependencies
    ```bash
