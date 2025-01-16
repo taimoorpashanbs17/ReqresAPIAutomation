@@ -43,6 +43,7 @@ cypress/
 
 ## Prerequisites
 
+- Git
 - Node.js (>=14.x)
 - npm or yarn
 - Cypress installed globally or locally as a dev dependency.
@@ -54,7 +55,7 @@ cypress/
 1. Clone the repository:
 
    ```bash
-   git clone [<repository-url>](https://github.com/taimoorpashanbs17/ReqresAPIAutomation)
+   git clone https://github.com/taimoorpashanbs17/ReqresAPIAutomation.git
    cd ReqresAPIAutomation
 
 2. Install Dependencies
